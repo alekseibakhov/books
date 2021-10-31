@@ -17,4 +17,13 @@ height: 100%;
 width: 1000px;
 height: 100%;
 border: 5px solid green;
+
+}
+.image {
+padding-left: 60px;
+padding-top: 150px;
+}
+.list {
+margin-left: 300px;
+margin-top: 200px;
 }
