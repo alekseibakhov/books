@@ -1,13 +1,33 @@
-/* общий параметр для тэгов о толщине и цвете разделителя */
-    table, th, td {
+    .base {
+        width: 1000px;                 /*ширина*/
+        height: 500px;
+        margin: auto;                  /*выравнивание по середине страницы*/
+        border-collapse: collapse;     /*убираем пустые промежутки между ячейками*/
+        }
+    /* общий параметр для тэгов о толщине и цвете разделителя */
+    .base, .base.th, .base.td {
+        text-align centre;
+        vertical-align midl;
         border: 5px solid green;
         }
-    /* параметр для таблице о толщине и цвете разделителя */
-    table {
-        border-collapse: collapse;
-        }
-    /* параметр для данных таблицы о цвете фона и размере отступа между словом и границей */
-    td {
+    /* параметр для таблицы о толщине и цвете разделителя */
+    .base td {
         background-color:white;
         padding: 20px;
         }
+    .base th {
+        background-color:grey;
+        padding: 10px;
+        }
+    .base caption {
+              text-align: centre;
+
+              /* стили для заголовка таблицы */
+          }
+
+
+
+
+
+
+
