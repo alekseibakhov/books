@@ -15,10 +15,7 @@ function Task(name, author, date, genre, numOfPages) { // наша таска
     this.numOfPages = numOfPages;
 
 }
-
 let tasks; // хранение массива введенных данных
-
-// кнопка добавить
 addTskBtn.addEventListener('click', () => {
     tasks.push(new Task(inputName.value, inputAuthor.value, inputDate.value, inputGenre.value, inputNumOfPages.value));
     updateLocal();
@@ -29,7 +26,6 @@ addTskBtn.addEventListener('click', () => {
     inputGenre.value = '';
     inputNumOfPages.value = '';
 })
-
 !localStorage.task ? tasks = [] : tasks = JSON.parse(localStorage.getItem('task')); // если в браузере уже есть массив, то используем его
 const updateLocal = () => {         //для хранения массива в браузере в application / local storage
     localStorage.setItem('task', JSON.stringify(tasks)); //localStorage глобальная переменная
@@ -47,6 +43,7 @@ const fillHtmllist = () => {
 let createTempl = (task, index) => {
     return `
         <div class="list-wrapper">
+            <button onclick="get(${index})">${index+1}</button>
             <div class="name">${task.name}</div>
             <div class="author">${task.author}</div>
             <div class="date">${task.date}</div>
@@ -56,6 +53,10 @@ let createTempl = (task, index) => {
         </div>
         `;
 }
+let get = index => {
+    window.open('book.html?book_index='+index,"_self")
+}
+
 const deleteTask = index => {
     tasks.splice(index, 1);
     updateLocal();
