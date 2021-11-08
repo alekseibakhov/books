@@ -10,7 +10,7 @@ getBook.innerHTML = `
         <div class="main">
             <div class="leftright"></div>
             <div class="center">
-                <img class="image" src="img/library.jpg" alt="библиотека" width="200" height="180"">
+                <img class="image" src="img/library.jpg" alt="библиотека" width="200" height="180" align="left">
                 <ul class="list">
                     <li>${books[bookIndex].name}</li>
                     <li>${books[bookIndex].author}</li>
