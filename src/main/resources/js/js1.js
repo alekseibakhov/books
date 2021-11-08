@@ -5,7 +5,7 @@ const inputDate = document.getElementById('description-date');
 const inputGenre = document.getElementById('description-genre');
 const inputNumOfPages = document.getElementById('description-numberOfPages');
 
-const descript = document.querySelector('.todo-wrapper');
+const descript = document.querySelector('.class');
 
 function Task(name, author, date, genre, numOfPages) { // наша таска
     this.name = name;
@@ -46,14 +46,14 @@ const fillHtmllist = () => {
 
 let createTempl = (task, index) => {
     return `
+        <div class="list-wrapper">
             <div class="name">${task.name}</div>
             <div class="author">${task.author}</div>
             <div class="date">${task.date}</div>
             <div class="genre">${task.genre}</div>
             <div class="numberOfPages">${task.numOfPages}</div>
-            <div class="buttons">
-                <button onclick="deleteTask(${index})" class="delete"> delete</button>
-            </div>
+            <button onclick="deleteTask(${index})" class="delete"> delete</button>
+        </div>
         `;
 }
 const deleteTask = index => {
