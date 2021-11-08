@@ -23,6 +23,6 @@ getBook.innerHTML = `
             <div class="leftright"></div>
         </div>
         <footer class="updown">
-            <p><a href="book.html"> Назад </a></p>
+            <p><a href="library2.html"> Назад </a></p>
         </footer>
 `
