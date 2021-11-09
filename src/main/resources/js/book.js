@@ -2,7 +2,7 @@ const url = new URL(window.location);
 let bookIndex = url.searchParams.get('book_index');
 let books = !localStorage.task ? [] : JSON.parse(localStorage.getItem('task')); // если в браузере уже есть массив, то используем его
 const getBook = document.querySelector('.book_base');
-
+console.log(url);
 getBook.innerHTML = `
         <header class="updown">
                 <h1>${books[bookIndex].name}</h1>
@@ -26,3 +26,4 @@ getBook.innerHTML = `
             <p><a href="library2.html"> Назад </a></p>
         </footer>
 `
+
