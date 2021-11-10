@@ -3,7 +3,7 @@ let bookIndex = url.searchParams.get('book_index');
 let books = !localStorage.task ? [] : JSON.parse(localStorage.getItem('task')); // если в браузере уже есть массив, то используем его
 const getBook = document.querySelector('.book_base');
 console.log(url);
-getBook.innerHTML = `
+getBook.innerHTML = ` 
         
 <div class="card" style="width: 18rem; flex-direction: row">
     <img src="img/library.jpg" class="card-img-top" style="" alt="книга">

@@ -40,7 +40,7 @@ const fillHtmllist = () => {
     }
 }
 let createTempl = (task, index) => {
-    return `
+    return ` 
 
         
         <ul class="list-group list-group-horizontal">
