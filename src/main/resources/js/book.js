@@ -4,26 +4,20 @@ let books = !localStorage.task ? [] : JSON.parse(localStorage.getItem('task')); 
 const getBook = document.querySelector('.book_base');
 console.log(url);
 getBook.innerHTML = `
-        <header class="updown">
-                <h1>${books[bookIndex].name}</h1>
-        </header>
-        <div class="main">
-            <div class="leftright"></div>
-            <div class="center">
-                <img class="image" src="img/library.jpg" alt="библиотека" width="200" height="180" align="left">
-                <ul class="list">
-                    <li>${books[bookIndex].name}</li>
-                    <li>${books[bookIndex].author}</li>
-                    <li>${books[bookIndex].date}</li>
-                    <li>${books[bookIndex].genre}</li>
-                    <li>${books[bookIndex].numOfPages}</li>
-                </ul>
-    
-            </div>
-            <div class="leftright"></div>
-        </div>
-        <footer class="updown">
-            <p><a href="library2.html"> Назад </a></p>
-        </footer>
+        
+<div class="card" style="width: 18rem; flex-direction: row">
+    <img src="img/library.jpg" class="card-img-top" style="" alt="книга">
+    <div class="card-body" >
+        <h5 class="card-title" style="width: 400px">${books[bookIndex].name}</h5>
+        <ul class="card-text">
+            <li>${books[bookIndex].author}</li>
+            <li>${books[bookIndex].date}</li>
+            <li>${books[bookIndex].genre}</li>
+            <li>${books[bookIndex].numOfPages}</li>
+        </ul>
+        <a href="/books/library.html" class="btn btn-primary" style="margin-top: 150px">назад</a>
+
+    </div>
+</div>
 `
 
