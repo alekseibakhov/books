@@ -10,28 +10,38 @@
 </head>
 <body>
 <header class="updown">
-    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-           data-bs-toggle="dropdown" aria-expanded="false">
-            Добавьте вашу книгу в библиотеку
-        </a>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Внесите книгу в вашу библиотеку
+    </button>
 
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <div class="input-group">
-                <input type="text" aria-label="First name" class="form-control" placeholder="название"
-                       id="description-name">
-                <input type="text" aria-label="First name" class="form-control" placeholder="автор"
-                       id="description-author">
-                <input type="text" aria-label="First name" class="form-control" placeholder="год издания"
-                       id="description-date">
-                <input type="text" aria-label="First name" class="form-control" placeholder="жанр"
-                       id="description-genre">
-                <input type="text" aria-label="Last name" class="form-control" placeholder="количество страниц"
-                       id="description-numberOfPages">
-                <button class="btn btn-outline-secondary" type="button" id="add-task">добавить</button>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Добавьте книгу</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="название"
+                           id="description-name">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="автор"
+                           id="description-author">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="год издания"
+                           id="description-date">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="жанр"
+                           id="description-genre">
+                    <input type="text" aria-label="Last name" class="form-control" placeholder="количество страниц"
+                           id="description-numberOfPages">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">закрыть</button>
+                    <button id="add-task" type="button" class="btn btn-primary">сохранить</button>
+                </div>
             </div>
-        </ul>
+        </div>
     </div>
+
 </header>
 
 
