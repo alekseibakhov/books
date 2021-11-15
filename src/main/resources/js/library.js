@@ -5,7 +5,7 @@ const inputDate = document.getElementById('description-date');
 const inputGenre = document.getElementById('description-genre');
 const inputNumOfPages = document.getElementById('description-numberOfPages');
 
-const descript = document.querySelector('.class');
+const descript = document.querySelector('.scrollspy-example');
 
 function Task(name, author, date, genre, numOfPages) { // наша таска
     this.name = name;
@@ -39,18 +39,19 @@ const fillHtmllist = () => {
         )
     }
 }
-
 let createTempl = (task, index) => {
-    return `
-        <div class="list-wrapper">
-            <button onclick="get(${index})">${index+1}</button>
-            <div class="name">${task.name}</div>
-            <div class="author">${task.author}</div>
-            <div class="date">${task.date}</div>
-            <div class="genre">${task.genre}</div>
-            <div class="numberOfPages">${task.numOfPages}</div>
-            <button onclick="deleteTask(${index})" class="delete"> delete</button>
-        </div>
+    return ` 
+
+        
+        <ul class="list-group list-group-horizontal">
+            <button style="width: 70px" onclick="get(${index})" type="button" class="btn btn-outline-primary">${index+1}</button>
+            <li class="list-group-item">${task.name}</li>
+            <li class="list-group-item">${task.author}</li>
+            <li class="list-group-item">${task.date}</li>
+            <li class="list-group-item">${task.genre}</li>
+            <li class="list-group-item">${task.numOfPages}</li>
+            <button onclick="deleteTask(${index})" type="button" class="btn btn-outline-primary">delete</button>
+        </ul>
         `;
 }
 let get = index => {

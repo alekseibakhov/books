@@ -1,26 +1,22 @@
 .main, .description1, .flex-wrapper, .list-wrapper{
-display: flex;
-}
-
-/*.updown {*/
-/*margin: 0 auto;*/
-/*font-style: italic;*/
-/*display: flex;*/
-/*height: 100%;*/
-/*justify-content: center;*/
-/*}*/
-h1, h2 {
     display: flex;
     justify-content: center;
+
+}
+.list-group-item{
+    word-break: break-all;
+    display: flex;
+    justify-content: center;
+    width:150px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
 }
 .leftright {
-width: 25%;
-}
-.list-wrapper, .flex-wrapper {
-width: 1000px;
-border: 5px solid green;
-margin-bottom: 1px;
-
+width: 15%;
 }
 
  .name, .author, .date, .genre, .numberOfPages{
@@ -28,10 +24,5 @@ margin-bottom: 1px;
      border: 1px solid gray;
      justify-content: center;
      display: flex;
-
-     /*border-top-width: 0px;*/
-     /*border-left-width: 0px;*/
-     /*border-bottom-width: 0px;*/
-
  }
 
