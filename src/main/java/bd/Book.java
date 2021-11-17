@@ -1,4 +1,4 @@
-package com.example.servlet1;
+package bd;
 
 public class Book {
     private String name;
@@ -33,4 +33,9 @@ public class Book {
     }
 
 
+
+    @Override
+    public String toString() {
+        return name + " " + author + " " + date + " " + genre;
+    }
 }
