@@ -18,9 +18,9 @@ public class LibraryClass {
 
     private void createClass() {
         list = new CopyOnWriteArrayList<>();
-        Book book1 = new Book("Marsianin", "Endi Vier", 2011, "drama");
-        Book book2 = new Book("Cod Da-Vinci", "Den Braun", 2003, "detective");
-        Book book3 = new Book("The Minds of Billy Milligan", "Daniel Keyes", 1981, "novel");
+        Book book1 = new Book("Marsianin", "Endi Vier", 2011, "drama", 255);
+        Book book2 = new Book("Cod Da-Vinci", "Den Braun", 2003, "detective", 150);
+        Book book3 = new Book("The Minds of Billy Milligan", "Daniel Keyes", 1981, "novel", 400);
         list.add(book1);
         list.add(book2);
         list.add(book3);

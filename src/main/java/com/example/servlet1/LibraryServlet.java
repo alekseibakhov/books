@@ -12,6 +12,7 @@ public class LibraryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.getWriter().write(req.getServletContext().getAttribute("books").toString());
+        resp.addHeader("Access-Control-Allow-Origin", "*");
 
     }
 }

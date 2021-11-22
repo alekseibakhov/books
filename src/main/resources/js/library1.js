@@ -55,7 +55,7 @@ let createTempl = (task, index) => {
         `;
 }
 let get = index => {
-    window.open('book.html?book_index='+index,"_self")
+    window.open('book1.html?book_index='+index,"_self")
 }
 
 const deleteTask = index => {

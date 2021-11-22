@@ -19,9 +19,8 @@ public class Search extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletContext servletContext = request.getServletContext();
         int id = Integer.parseInt(request.getParameter("id"));
-        dao.getBookById(id);
-        response.getWriter().write(dao.getBookById(id).toString());
-//        servletContext.setAttribute("books", objectMapper.writeValueAsString(books));
+        servletContext.setAttribute("book", objectMapper.writeValueAsString(dao.getBookById(id)));
+        response.getWriter().write(request.getServletContext().getAttribute("book").toString());
 
     }
 

@@ -15,7 +15,7 @@ getBook.innerHTML = `
             <li>${books[bookIndex].genre}</li>
             <li>${books[bookIndex].numOfPages}</li>
         </ul>
-        <a href="/books/library.html" class="btn btn-primary" style="margin-top: 150px">назад</a>
+        <a href="/library.html" class="btn btn-primary" style="margin-top: 150px">назад</a>
 
     </div>
 </div>
