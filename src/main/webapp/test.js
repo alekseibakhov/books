@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+// window.addEventListener("DOMContentLoaded", () => {
     // const addBtn = document.getElementById("btn")
     const descript = document.querySelector('.scrollspy-example')
     //добавление на страницу
@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const date = document.getElementById("description-date");
     const genre = document.getElementById("description-genre");
     const numOfPages = document.getElementById("description-numberOfPages")
-
 //функция добавления элементов из servlet
     req();
 
@@ -18,11 +17,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
         fetch("http://localhost:8080/saveservlet")
             .then(data => data.json())
-            .then(data => createDiv(data)).then(upgrade);
-
-
+            .then(data => createDiv(data)).then(clear);
     }
-    function upgrade() {
+
+// очистка поля
+    function clear() {
         title.value = "";
         author.value = "";
         date.value = "";
@@ -39,18 +38,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
             descript.innerHTML += `
 
-        <ul class="list-group list-group-horizontal">
-            <li class="list-group-item">${item.id}</li>
+        <ul class="list-group list-group-horizontal" style="padding-left: 75px;">
+        <button style="width: 70px"  onclick="getById(${item.id})" type="button" class="btn btn-outline-primary">${item.id}</button>
             <li class="list-group-item">${item.title}</li>
-            <li class="list-group-item">${item.author}</li>
             <li class="list-group-item">${item.author}</li>
             <li class="list-group-item">${item.date}</li>
             <li class="list-group-item">${item.genre}</li>
             <li class="list-group-item">${item.numOfPages}</li>
-
-        </ul>
-
-                    
+            <button onclick="deleteTask(${item.id})" type="button" class="btn btn-outline-primary">delete</button>
+        </ul>                 
                     `;
             //добавляем в конец
             descript.appendChild(card);
@@ -65,10 +61,12 @@ window.addEventListener("DOMContentLoaded", () => {
             headers: {
                 "Content-type": "application/json"
             }
-        }).then(response => {
-            return response.json()
         })
+        //     .then(response => {
+        //     return response.json()
+        // })
     }
+
 
     function createBody() {
         return body = {
@@ -81,12 +79,28 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     btn.addEventListener("click", () => {
 
         sendRequest("POST", url, createBody());
         req();
     });
 
+// })
+const url_del = "http://localhost:8080/search";
 
-})
+let deleteTask = id => {
+    deleteBook(id);
+    req();
+
+}
+
+function deleteBook(id) {
+    return fetch(url_del, {
+        method: "POST",
+        body: id,
+    });
+}
+
+let getById = id => {
+    window.open('http://localhost:8080/search?id=' + id, "_self");
+}

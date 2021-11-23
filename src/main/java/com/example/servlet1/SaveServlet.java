@@ -59,12 +59,12 @@ public class SaveServlet extends HttpServlet {
 //        servletContext.setAttribute("books", objectMapper.writeValueAsString(dao.getBook()));
 //        resp.getWriter().write(req.getServletContext().getAttribute("books").toString());
 //    }
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        dao.deleteBook(id);
-        ServletContext servletContext = req.getServletContext();
-        servletContext.setAttribute("books", objectMapper.writeValueAsString(dao.getBook()));
-        resp.getWriter().write(req.getServletContext().getAttribute("books").toString());
-    }
+//    @Override
+//    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+//        int id = Integer.parseInt(req.getParameter("id"));
+//        dao.deleteBook(id);
+//        ServletContext servletContext = req.getServletContext();
+//        servletContext.setAttribute("books", objectMapper.writeValueAsString(dao.getBook()));
+//        resp.getWriter().write(req.getServletContext().getAttribute("books").toString());
+//    }
 }
