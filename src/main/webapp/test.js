@@ -18,7 +18,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
         fetch("http://localhost:8080/saveservlet")
             .then(data => data.json())
-            .then(data => createDiv(data));
+            .then(data => createDiv(data)).then(upgrade);
+
+
+    }
+    function upgrade() {
+        title.value = "";
+        author.value = "";
+        date.value = "";
+        genre.value = "";
+        numOfPages.value = "";
     }
 
 //метод добавления элементов
