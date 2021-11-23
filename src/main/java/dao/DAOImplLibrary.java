@@ -1,12 +1,11 @@
 package dao;
 
 import bd.Book;
-import bd.LibraryClass;
 
 import java.util.List;
 
 public class DAOImplLibrary implements DAO {
-    List<Book> list = LibraryClass.getClassLibrary().getLibrary();
+    private BookDAO bookDAO = new BookDAO();
 
     @Override
     public Book getBook(String name) {
@@ -15,21 +14,21 @@ public class DAOImplLibrary implements DAO {
 
     @Override
     public List<Book> getBook() {
-        return list;
+        return bookDAO.findAll();
     }
 
     @Override
     public Book getBookById(int id) {
-        return list.get(id);
+        return bookDAO.findById(id);
     }
 
     @Override
     public void addBook(Book book) {
-        list.add(book);
+        bookDAO.save(book);
     }
 
     @Override
     public void deleteBook(int id) {
-        list.remove(id);
+        bookDAO.delete(bookDAO.findById(id));
     }
 }

@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //добавление на страницу
     const url = "http://localhost:8080/saveservlet";
     const btn = document.getElementById("add-task");
-    const name = document.getElementById("description-name");
+    const title = document.getElementById("description-name");
     const author = document.getElementById("description-author");
     const date = document.getElementById("description-date");
     const genre = document.getElementById("description-genre");
@@ -31,7 +31,9 @@ window.addEventListener("DOMContentLoaded", () => {
             descript.innerHTML += `
 
         <ul class="list-group list-group-horizontal">
-            <li class="list-group-item">${item.name}</li>
+            <li class="list-group-item">${item.id}</li>
+            <li class="list-group-item">${item.title}</li>
+            <li class="list-group-item">${item.author}</li>
             <li class="list-group-item">${item.author}</li>
             <li class="list-group-item">${item.date}</li>
             <li class="list-group-item">${item.genre}</li>
@@ -60,18 +62,16 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     function createBody() {
-        let body = {
-            name: name.value,
+        return body = {
+            title: title.value,
             author: author.value,
             date: date.value,
             genre: genre.value,
             numOfPages: numOfPages.value
         }
-        return body;
     }
 
 
-    // addBtn.addEventListener("click", (e) => req(e));
 
     btn.addEventListener("click", () => {
 
