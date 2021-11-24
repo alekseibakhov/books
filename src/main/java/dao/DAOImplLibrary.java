@@ -2,6 +2,7 @@ package dao;
 
 import bd.Book;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class DAOImplLibrary implements DAO {
