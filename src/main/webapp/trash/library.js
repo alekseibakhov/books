@@ -15,6 +15,7 @@ function Task(name, author, date, genre, numOfPages) { // наша таска
     this.numOfPages = numOfPages;
 
 }
+
 let tasks; // хранение массива введенных данных
 addTskBtn.addEventListener('click', () => {
     tasks.push(new Task(inputName.value, inputAuthor.value, inputDate.value, inputGenre.value, inputNumOfPages.value));
@@ -55,7 +56,7 @@ let createTempl = (task, index) => {
         `;
 }
 let get = index => {
-    window.open('book.html?book_index='+index,"_self")
+    window.open('book1.html?book_index='+index,"_self")
 }
 
 const deleteTask = index => {
