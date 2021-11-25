@@ -6,10 +6,8 @@ import bd.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.sql.rowset.JdbcRowSet;
+import java.sql.*;
 import java.util.List;
 
 public class BookDAO {
@@ -17,31 +15,38 @@ public class BookDAO {
 
 
     public Book findById(int id) {
-        Book book = new Book();
-        try( Connection connection = connectionJDBC.getConnectionJDBC()) {
-            String sql = "SELECT * FROM book WHERE id = ?";
+//        Book book= new Book();
+//        try( Connection connection = connectionJDBC.getConnectionJDBC()) {
+//            String sql = "SELECT * FROM book WHERE id = ?";
+//            Statement statement1 = connection.createStatement();
+//            statement1.execute(sql);
+//
+//            ResultSet set = statement1.getResultSet();
+//            while (set.next()){
+//
+//            }
 
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            statement.setInt(1, id);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            resultSet.next();
+//                book.setTitle(resultSet.getString("title"));
+//                book.setAuthor(resultSet.getString("author"));
+//                book.setDate(resultSet.getInt("date"));
+//                book.setGenre(resultSet.getString("genre"));
+//                book.setNumOfPages(resultSet.getInt("numOfPages"));
+//
+//
+//
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//
+//
+//        return book;
+                return HibernateSessionFactory.getSessionFactory().openSession().get(Book.class, id);
 
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()){
-                book.setTitle(resultSet.getString("title"));
-                book.setAuthor(resultSet.getString("author"));
-                book.setDate(resultSet.getInt("date"));
-                book.setGenre(resultSet.getString("genre"));
-                book.setNumOfPages(resultSet.getInt("numOfPages"));
-            }
-
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-//        return HibernateSessionFactory.getSessionFactory().openSession().get(Book.class, id);
-
-        return book;
     }
 
     public void save(Book book) {
