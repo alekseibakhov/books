@@ -7,7 +7,7 @@ import javax.servlet.ServletResponse;
 import java.io.IOException;
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
-
+//не надо
 public class CharacterSetFilter implements Filter {
 
     // ...
