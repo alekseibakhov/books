@@ -1,20 +1,18 @@
 package com.controller;
 
-import com.dao.BookDAO;
+import com.dao.DAOBookInterface;
 import com.model.Book;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/library")
 public class MyController {
-    private final BookDAO bookDAO;
+    private final DAOBookInterface bookDAO;
 
-    public MyController(BookDAO bookDAO) {
+    public MyController(DAOBookInterface bookDAO) {
         this.bookDAO = bookDAO;
     }
 
@@ -40,13 +38,8 @@ public class MyController {
 
     @DeleteMapping("/{index}")
     public String deleteBook(@PathVariable("index") int index) {
-        return "book";
+        bookDAO.delete(index);
+        return "redirect:/library";
     }
 
-
-//    @GetMapping("/get")
-//    public String allLibrary(Model model) {
-//        model.addAttribute("x", bookDAO.getLibrary());
-//        return "library1";
-//    }
 }
