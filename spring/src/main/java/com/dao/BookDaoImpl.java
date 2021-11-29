@@ -22,8 +22,8 @@ public class BookDaoImpl implements DAOBookInterface {
     }
 
     public void delete(int id) {
-//        dao.delete(dao.findById(id));
-
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(session.load(Book.class, id));
     }
 
     public List<Book> getLibrary() {
@@ -32,13 +32,14 @@ public class BookDaoImpl implements DAOBookInterface {
     }
 
     public Book getBookById(int id) {
-//        return dao.findById(id);
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.load(Book.class, id);
 
     }
 
     public void createBook(Book book) {
-//        dao.save(book);
+        Session session = sessionFactory.getCurrentSession();
+        session.save(book);
     }
 
 }
