@@ -25,14 +25,12 @@ public class HibernateConfig {
     public void setEnvironment(Environment environment) {
         this.environment = environment;
     }
-
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         return properties;
     }
-
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
@@ -42,7 +40,6 @@ public class HibernateConfig {
         dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
         return dataSource;
     }
-
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -51,7 +48,6 @@ public class HibernateConfig {
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
-
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();

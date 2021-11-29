@@ -4,7 +4,7 @@ import com.model.Book;
 
 import java.util.List;
 
-public interface DAOBookInterface {
+public interface BookDAO {
     void delete(int id);
     List<Book> getLibrary();
     Book getBookById(int id);
