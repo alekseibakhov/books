@@ -1,6 +1,10 @@
 package com.config;
 
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 public class MySpringDispatcher extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -16,5 +20,16 @@ public class MySpringDispatcher extends AbstractAnnotationConfigDispatcherServle
     @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
+    }
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        super.onStartup(servletContext);
+        registerHiddenmethod(servletContext);
+
+    }
+
+    private void registerHiddenmethod(ServletContext servletContext) {
+        servletContext.addFilter("hiddenHttpMethodFilter", new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }

@@ -40,13 +40,7 @@ public class MyController {
 
     @DeleteMapping("/{index}")
     public String deleteBook(@PathVariable("index") int index) {
-        return "book";
+        bookDAO.delete(index);
+        return "redirect:/library";
     }
-
-
-//    @GetMapping("/get")
-//    public String allLibrary(Model model) {
-//        model.addAttribute("x", bookDAO.getLibrary());
-//        return "library1";
-//    }
 }
