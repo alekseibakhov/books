@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.dao.DAOBookInterface;
 import com.model.Book;
+import com.service.LibraryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/library")
 public class MyController {
-    private final DAOBookInterface bookDAO;
+    private final LibraryService bookDAO;
 
-    public MyController(DAOBookInterface bookDAO) {
+    public MyController(LibraryService bookDAO) {
         this.bookDAO = bookDAO;
     }
 
