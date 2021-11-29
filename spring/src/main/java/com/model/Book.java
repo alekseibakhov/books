@@ -1,6 +1,13 @@
 package com.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "table")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String genre;
@@ -11,8 +18,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String title, String genre, String author, int date, int numOfPages) {
-        this.id = id;
+    public Book(String title, String genre, String author, int date, int numOfPages) {
         this.title = title;
         this.genre = genre;
         this.author = author;
@@ -24,9 +30,6 @@ public class Book {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -66,5 +69,10 @@ public class Book {
 
     public void setNumOfPages(int numOfPages) {
         this.numOfPages = numOfPages;
+    }
+
+    @Override
+    public String toString() {
+        return id + " " + title + " " + author + " " + date + " " + genre + " " + numOfPages;
     }
 }
