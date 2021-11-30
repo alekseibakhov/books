@@ -24,8 +24,8 @@ public class MyController {
     }
 
     @GetMapping("/{index}")
-    public String getBookById(@PathVariable("index") int id, Model model) {
-        model.addAttribute("book", bookDAO.getBookById(id));
+    public String getBookById(@PathVariable int index, Model model) {
+        model.addAttribute("book", bookDAO.getBookById(index));
         return "book";
     }
 

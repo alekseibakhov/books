@@ -14,7 +14,7 @@
     <div class="card" style="width: 18rem; flex-direction: row">
         <img src="img/library.jpg" class="card-img-top" style="" alt="image">
         <div class="card-body" >
-            <h5 class="card-title" style="width: 400px" th:text="${book.getTitle()}"></h5>
+            <h5 class="card-title" style="width: 400px" th:text="${book.title}"></h5>
             <ul class="card-text">
                 <li th:text="${book.getAuthor()}"></li>
                 <li th:text="${book.getDate()}"></li>
