@@ -1,7 +1,6 @@
 package com.example.boot.controller;
 
 import com.example.boot.model.Book;
-import com.example.boot.repository.LibraryRepository;
 import com.example.boot.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,7 +33,7 @@ public class MyController {
         return "book";
     }
 
-    @GetMapping("delete/{id}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('developers:write')")
     public String delete(@PathVariable int id) {
         libraryService.delete(id);

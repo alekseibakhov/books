@@ -82,7 +82,7 @@
                 <li class="list-group-item" th:text="${books.getGenre()}"></li>
                 <li class="list-group-item" th:text="${books.getDate()}"></li>
                 <li class="list-group-item" th:text="${books.getNumOfPages()}"></li>
-                <form th:action="@{/library/delete/{id}(id = ${books.getId()})}">
+                <form th:action="@{/library/{id}(id = ${books.getId()})}" th:method="DELETE">
                     <input type="submit" value="Delete" class="btn btn-outline-primary">
                 </form>
 

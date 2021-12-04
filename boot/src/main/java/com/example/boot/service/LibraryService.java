@@ -2,9 +2,7 @@ package com.example.boot.service;
 
 import com.example.boot.model.Book;
 import com.example.boot.repository.LibraryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
