@@ -9,6 +9,7 @@
     <version>1.0</version>
     <modules>
         <module>spring</module>
+        <module>boot</module>
         <module>Book</module>
     </modules>
     <name>servlet1</name>

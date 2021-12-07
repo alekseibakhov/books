@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <title>Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="library.css">
+</head>
+<body>
+<header class="updown">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add your book
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form th:method="POST" th:action="@{/library}" th:object="${newBook}">
+                <div class="modal-body">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="title"
+                           id="description-name" th:field="*{title}">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="author"
+                           id="description-author" th:field="*{author}">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="the year of publishing"
+                           id="description-date" th:field="*{date}">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="genre"
+                           id="description-genre" th:field="*{genre}">
+                    <input type="text" aria-label="Last name" class="form-control" placeholder="number of pages"
+                           id="description-numberOfPages" th:field="*{numOfPages}">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                    <input id="add-task" type="submit" class="btn btn-primary" value="save"/>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+
+<h1>
+    Bibliography
+</h1>
+<div style="margin-bottom: 20px;" class="description1">
+
+    <div class="leftright"></div>
+    <div class="class">
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example1"
+             tabindex="0">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item" style="width: 70px">id</li>
+                <li class="list-group-item">Title</li>
+                <li class="list-group-item">Author</li>
+                <li class="list-group-item">The year of publishing</li>
+                <li class="list-group-item">Genre</li>
+                <li class="list-group-item">Number of pages</li>
+            </ul>
+        </div>
+    </div>
+    <div class="leftright"></div>
+
+</div>
+<div class="description1">
+
+    <div class="leftright"></div>
+    <div class="class">
+        <div  th:each="books : ${library}" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+             tabindex="0" >
+            <ul class="list-group list-group-horizontal" style="padding-left: 75px;">
+                <a th:href="@{/library/{index}(index=${books.getId()})}" th:text="${books.getId()}" style="width: 70px" class="btn btn-outline-primary" ></a>
+                <li class="list-group-item" th:text="${books.getTitle()}"></li>
+                <li class="list-group-item" th:text="${books.getAuthor()}"></li>
+                <li class="list-group-item" th:text="${books.getGenre()}"></li>
+                <li class="list-group-item" th:text="${books.getDate()}"></li>
+                <li class="list-group-item" th:text="${books.getNumOfPages()}"></li>
+                <form th:method="DELETE" th:action="@{/library/{id}(id = ${books.getId()})}">
+                    <input type="submit" value="Delete" class="btn btn-outline-primary">
+                </form>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="leftright"></div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<!--<script src="test.js"></script>-->
+
+
+</body>
+</html>
